@@ -1,3 +1,368 @@
+1. Write a program to perform basic input and output using streams (cin and cout).
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    cout << "You entered: " << num << endl;
+    return 0;
+}
+2. Create a program that reads and displays multiple lines of text using cin and cout.
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string line;
+    cout << "Enter multiple lines of text (enter 'exit' to quit):" << endl;
+    while (true) {
+        getline(cin, line);
+        if (line == "exit") break;
+        cout << "You entered: " << line << endl;
+    }
+    return 0;
+}
+3. Implement a program that uses streams to read integers from the user and display their sum.
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num1, num2;
+    cout << "Enter two integers: ";
+    cin >> num1 >> num2;
+    cout << "Sum: " << (num1 + num2) << endl;
+    return 0;
+}
+4. Write a program to input and output various data types using cin and cout.
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int intVar;
+    float floatVar;
+    double doubleVar;
+    char charVar;
+
+    cout << "Enter an integer, float, double, and character: ";
+    cin >> intVar >> floatVar >> doubleVar >> charVar;
+
+    cout << "You entered: " << endl;
+    cout << "Integer: " << intVar << endl;
+    cout << "Float: " << floatVar << endl;
+    cout << "Double: " << doubleVar << endl;
+    cout << "Character: " << charVar << endl;
+
+    return 0;
+}
+5. Create a program that formats output using manipulators such as setw, setprecision, and fixed.
+
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double value = 123.456789;
+    
+    cout << "Formatted output:" << endl;
+    cout << "Default: " << value << endl;
+    cout << "Setprecision 2: " << setprecision(2) << value << endl;
+    cout << "Fixed and setprecision 2: " << fixed << setprecision(2) << value << endl;
+    cout << "Width 10: " << setw(10) << value << endl;
+
+    return 0;
+}
+6. Implement a program that reads user input for name, age, and salary, and then displays the information using formatted output.
+
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    string name;
+    int age;
+    double salary;
+
+    cout << "Enter your name: ";
+    cin >> name;
+    cout << "Enter your age: ";
+    cin >> age;
+    cout << "Enter your salary: ";
+    cin >> salary;
+
+    cout << "\nFormatted Output:" << endl;
+    cout << "Name: " << name << endl;
+    cout << "Age: " << age << endl;
+    cout << "Salary: " << fixed << setprecision(2) << salary << endl;
+
+    return 0;
+}
+7. Write a program to demonstrate the use of ifstream and ofstream for file input and output.
+
+
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    // Writing to a file
+    ofstream outFile("example.txt");
+    outFile << "Hello, file!" << endl;
+    outFile.close();
+
+    // Reading from a file
+    ifstream inFile("example.txt");
+    string content;
+    getline(inFile, content);
+    cout << "File content: " << content << endl;
+    inFile.close();
+
+    return 0;
+}
+8. Implement a program that reads a list of integers from a file and displays them on the console.
+
+
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream inFile("numbers.txt");
+    int num;
+    while (inFile >> num) {
+        cout << num << " ";
+    }
+    inFile.close();
+    return 0;
+}
+9. Create a program that writes a list of strings to a file.
+
+
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream outFile("strings.txt");
+    outFile << "First String\n";
+    outFile << "Second String\n";
+    outFile << "Third String\n";
+    outFile.close();
+    return 0;
+}
+10. Write a program to demonstrate unformatted input and output using get and put functions.
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch;
+
+    cout << "Enter a character: ";
+    ch = cin.get();
+    cout << "You entered: ";
+    cout.put(ch);
+    cout << endl;
+
+    return 0;
+}
+11. Implement a program that reads and writes characters using get and put.
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch;
+    
+    cout << "Enter a character: ";
+    ch = cin.get();
+    
+    cout << "You entered: ";
+    cout.put(ch);
+    cout << endl;
+    
+    return 0;
+}
+12. Create a program that uses formatted input and output to display a table of data.
+
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    cout << setw(15) << left << "Name"
+         << setw(10) << "Age"
+         << setw(15) << "Salary" << endl;
+    
+    cout << setw(15) << left << "John"
+         << setw(10) << 30
+         << setw(15) << "$3000" << endl;
+    
+    cout << setw(15) << left << "Jane"
+         << setw(10) << 25
+         << setw(15) << "$4000" << endl;
+
+    return 0;
+}
+13. Write a program that uses getline to read a full line of text and display it.
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string line;
+    
+    cout << "Enter a full line of text: ";
+    getline(cin, line);
+    
+    cout << "You entered: " << line << endl;
+    
+    return 0;
+}
+14. Write a program that uses manipulators to format floating-point numbers with different precisions.
+
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double num = 3.14159265358979;
+    
+    cout << "Default precision: " << num << endl;
+    cout << "Precision 3: " << setprecision(3) << num << endl;
+    cout << "Precision 5: " << setprecision(5) << num << endl;
+    
+    return 0;
+}
+15. Implement a program that uses setw to align text output in columns.
+
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    cout << setw(10) << left << "Name" << setw(10) << "Age" << setw(10) << "Salary" << endl;
+    cout << setw(10) << left << "John" << setw(10) << 30 << setw(10) << "$3000" << endl;
+    cout << setw(10) << left << "Jane" << setw(10) << 25 << setw(10) << "$4000" << endl;
+
+    return 0;
+}
+16. Create a program that uses manipulators to format currency and percentage values.
+
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double price = 1234.567;
+    double percentage = 0.876;
+
+    cout << "Currency format: " << fixed << setprecision(2) << "$" << price << endl;
+    cout << "Percentage format: " << fixed << setprecision(2) << percentage * 100 << "%" << endl;
+
+    return 0;
+}
+17. Write a program to read data from a text file and display it on the console.
+
+
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream inFile("data.txt");
+    string line;
+    
+    while (getline(inFile, line)) {
+        cout << line << endl;
+    }
+
+    inFile.close();
+    return 0;
+}
+18. Implement a program to write user input to a text file.
+
+
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream outFile("userInput.txt");
+    string line;
+    
+    cout << "Enter text to save to the file (enter 'exit' to quit):" << endl;
+    while (true) {
+        getline(cin, line);
+        if (line == "exit") break;
+        outFile << line << endl;
+    }
+
+    outFile.close();
+    return 0;
+}
+19. Create a program that copies the contents of one file to another using file streams.
+
+
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream inFile("source.txt");
+    ofstream outFile("destination.txt");
+    
+    string line;
+    while (getline(inFile, line)) {
+        outFile << line << endl;
+    }
+
+    inFile.close();
+    outFile.close();
+    return 0;
+}
+20. Write a program that appends new data to an existing file.
+
+
+
 #include <iostream>
 #include <fstream>
 using namespace std;
