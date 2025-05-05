@@ -1,0 +1,290 @@
+1. Create a class Person with private attributes name, age, and public methods to set and get the values.
+cpp
+Copy
+Edit
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Person {
+private:
+    string name;
+    int age;
+
+public:
+    void setName(string n) {
+        name = n;
+    }
+    
+    void setAge(int a) {
+        age = a;
+    }
+
+    string getName() {
+        return name;
+    }
+    
+    int getAge() {
+        return age;
+    }
+};
+
+int main() {
+    Person p;
+    p.setName("John");
+    p.setAge(30);
+    
+    cout << "Name: " << p.getName() << endl;
+    cout << "Age: " << p.getAge() << endl;
+
+    return 0;
+}
+2. Implement a class Student that inherits from Person and adds a private attribute studentID with appropriate methods.
+cpp
+Copy
+Edit
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Person {
+private:
+    string name;
+    int age;
+
+public:
+    void setName(string n) {
+        name = n;
+    }
+
+    void setAge(int a) {
+        age = a;
+    }
+
+    string getName() {
+        return name;
+    }
+
+    int getAge() {
+        return age;
+    }
+};
+
+class Student : public Person {
+private:
+    int studentID;
+
+public:
+    void setStudentID(int id) {
+        studentID = id;
+    }
+
+    int getStudentID() {
+        return studentID;
+    }
+};
+
+int main() {
+    Student s;
+    s.setName("Alice");
+    s.setAge(20);
+    s.setStudentID(12345);
+
+    cout << "Name: " << s.getName() << endl;
+    cout << "Age: " << s.getAge() << endl;
+    cout << "Student ID: " << s.getStudentID() << endl;
+
+    return 0;
+}
+3. Design a class Car with attributes for make, model, and year. Include methods to display car details.
+cpp
+Copy
+Edit
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Car {
+private:
+    string make;
+    string model;
+    int year;
+
+public:
+    void setMake(string m) {
+        make = m;
+    }
+
+    void setModel(string m) {
+        model = m;
+    }
+
+    void setYear(int y) {
+        year = y;
+    }
+
+    void displayCarDetails() {
+        cout << "Make: " << make << endl;
+        cout << "Model: " << model << endl;
+        cout << "Year: " << year << endl;
+    }
+};
+
+int main() {
+    Car c;
+    c.setMake("Toyota");
+    c.setModel("Camry");
+    c.setYear(2022);
+    
+    c.displayCarDetails();
+
+    return 0;
+}
+4. Write a program that creates an array of Car objects and displays their details.
+cpp
+Copy
+Edit
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Car {
+private:
+    string make;
+    string model;
+    int year;
+
+public:
+    void setMake(string m) {
+        make = m;
+    }
+
+    void setModel(string m) {
+        model = m;
+    }
+
+    void setYear(int y) {
+        year = y;
+    }
+
+    void displayCarDetails() {
+        cout << "Make: " << make << endl;
+        cout << "Model: " << model << endl;
+        cout << "Year: " << year << endl;
+    }
+};
+
+int main() {
+    Car cars[3];
+    
+    cars[0].setMake("Toyota");
+    cars[0].setModel("Camry");
+    cars[0].setYear(2022);
+    
+    cars[1].setMake("Honda");
+    cars[1].setModel("Civic");
+    cars[1].setYear(2021);
+
+    cars[2].setMake("Ford");
+    cars[2].setModel("Mustang");
+    cars[2].setYear(2023);
+
+    for(int i = 0; i < 3; i++) {
+        cout << "Car " << i + 1 << ":" << endl;
+        cars[i].displayCarDetails();
+        cout << endl;
+    }
+
+    return 0;
+}
+5. Implement a class BankAccount with private attributes for account number, balance, and public methods for depositing and withdrawing money.
+cpp
+Copy
+Edit
+#include <iostream>
+using namespace std;
+
+class BankAccount {
+private:
+    int accountNumber;
+    double balance;
+
+public:
+    BankAccount(int accNum, double bal) {
+        accountNumber = accNum;
+        balance = bal;
+    }
+
+    void deposit(double amount) {
+        if(amount > 0) {
+            balance += amount;
+            cout << "Deposited " << amount << ". New balance: " << balance << endl;
+        } else {
+            cout << "Invalid deposit amount." << endl;
+        }
+    }
+
+    void withdraw(double amount) {
+        if(amount > 0 && amount <= balance) {
+            balance -= amount;
+            cout << "Withdrew " << amount << ". New balance: " << balance << endl;
+        } else {
+            cout << "Invalid withdrawal amount." << endl;
+        }
+    }
+
+    void displayBalance() {
+        cout << "Balance: " << balance << endl;
+    }
+};
+
+int main() {
+    BankAccount account(12345, 1000.0);
+    
+    account.displayBalance();
+    account.deposit(200.0);
+    account.withdraw(500.0);
+    account.displayBalance();
+
+    return 0;
+}
+6. Create a class Rectangle with private attributes for length and width, and public methods to calculate area and perimeter.
+cpp
+Copy
+Edit
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+private:
+    double length;
+    double width;
+
+public:
+    void setLength(double l) {
+        length = l;
+    }
+
+    void setWidth(double w) {
+        width = w;
+    }
+
+    double calculateArea() {
+        return length * width;
+    }
+
+    double calculatePerimeter() {
+        return 2 * (length + width);
+    }
+};
+
+int main() {
+    Rectangle rect;
+    rect.setLength(5.0);
+    rect.setWidth(3.0);
+
+    cout << "Area: " << rect.calculateArea() << endl;
+    cout << "Perimeter: " << rect.calculatePerimeter() << endl;
+
+    return 0;
+}
