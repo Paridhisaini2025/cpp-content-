@@ -1,3 +1,205 @@
+1. Create a class Person with private attributes name, age, and public methods to set and get the values.
+
+
+
+#include <iostream>
+using namespace std;
+
+class Person {
+private:
+    string name;
+    int age;
+
+public:
+    void setName(string n) { name = n; }
+    void setAge(int a) { age = a; }
+    string getName() { return name; }
+    int getAge() { return age; }
+};
+2. Implement a class Student that inherits from Person and adds a private attribute studentID with appropriate methods.
+
+
+
+class Student : public Person {
+private:
+    int studentID;
+
+public:
+    void setStudentID(int id) { studentID = id; }
+    int getStudentID() { return studentID; }
+};
+3. Design a class Car with attributes for make, model, and year. Include methods to display car details.
+
+
+
+class Car {
+private:
+    string make, model;
+    int year;
+
+public:
+    Car(string mk, string mdl, int yr) : make(mk), model(mdl), year(yr) {}
+
+    void display() {
+        cout << "Make: " << make << ", Model: " << model << ", Year: " << year << endl;
+    }
+};
+4. Write a program that creates an array of Car objects and displays their details.
+
+
+
+int main() {
+    Car cars[] = {
+        Car("Toyota", "Camry", 2020),
+        Car("Honda", "Civic", 2021),
+        Car("Ford", "Mustang", 2019)
+    };
+
+    for (int i = 0; i < 3; ++i) {
+        cars[i].display();
+    }
+
+    return 0;
+}
+5. Implement a class BankAccount with private attributes for account number, balance, and public methods for depositing and withdrawing money.
+
+
+
+class BankAccount {
+private:
+    int accountNumber;
+    double balance;
+
+public:
+    BankAccount(int acc, double bal) : accountNumber(acc), balance(bal) {}
+
+    void deposit(double amount) { balance += amount; }
+    void withdraw(double amount) {
+        if (balance >= amount) balance -= amount;
+    }
+    void display() {
+        cout << "Account: " << accountNumber << ", Balance: " << balance << endl;
+    }
+};
+6. Create a class Rectangle with private attributes for length and width, and public methods to calculate area and perimeter.
+
+
+
+class Rectangle {
+private:
+    double length, width;
+
+public:
+    Rectangle(double l, double w) : length(l), width(w) {}
+
+    double area() { return length * width; }
+    double perimeter() { return 2 * (length + width); }
+};
+7. Write a class Employee with private attributes name, position, and salary, and public methods to display employee details.
+
+
+
+class Employee {
+private:
+    string name, position;
+    double salary;
+
+public:
+    Employee(string n, string p, double s) : name(n), position(p), salary(s) {}
+
+    void display() {
+        cout << "Name: " << name << ", Position: " << position << ", Salary: " << salary << endl;
+    }
+};
+8. Create a class Counter with a static data member to count the number of objects created.
+
+
+
+class Counter {
+private:
+    static int count;
+
+public:
+    Counter() { ++count; }
+    static int getCount() { return count; }
+};
+int Counter::count = 0;
+9. Implement a class Math with static function members for basic arithmetic operations.
+
+
+
+class Math {
+public:
+    static int add(int a, int b) { return a + b; }
+    static int subtract(int a, int b) { return a - b; }
+    static int multiply(int a, int b) { return a * b; }
+    static double divide(double a, double b) { return b != 0 ? a / b : 0; }
+};
+10. Write a class Student with a static data member to keep track of the total number of students enrolled.
+
+
+
+class Student {
+private:
+    static int count;
+
+public:
+    Student() { ++count; }
+    static int getTotalStudents() { return count; }
+};
+int Student::count = 0;
+11. Implement a class Book with a parameterized constructor to initialize book details.
+
+
+
+class Book {
+private:
+    string title;
+    string author;
+
+public:
+    Book(string t, string a) : title(t), author(a) {}
+
+    void display() {
+        cout << "Title: " << title << ", Author: " << author << endl;
+    }
+};
+12. Create a class Point with a default constructor, parameterized constructor, and  constructor.
+
+
+
+class Point {
+private:
+    int x, y;
+
+public:
+    Point() : x(0), y(0) {}
+    Point(int a, int b) : x(a), y(b) {}
+    Point(const Point &p) : x(p.x), y(p.y) {}
+
+    void display() {
+        cout << "(" << x << ", " << y << ")" << endl;
+    }
+};
+13. Write a class Matrix with a parameterized constructor to initialize a 2D array.
+
+
+
+class Matrix {
+private:
+    int mat[2][2];
+
+public:
+    Matrix(int a, int b, int c, int d) {
+        mat[0][0] = a; mat[0][1] = b;
+        mat[1][0] = c; mat[1][1] = d;
+    }
+
+    void display() {
+        cout << mat[0][0] << " " << mat[0][1] << endl;
+        cout << mat[1][0] << " " << mat[1][1] << endl;
+    }
+};
 13. Write a class Matrix with a parameterized constructor to initialize a 2D array.
 
 
