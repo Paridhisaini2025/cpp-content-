@@ -1,0 +1,211 @@
+1. Implement a base class Shape with derived classes Circle, Rectangle, and Triangle. Use virtual functions to calculate the area of each shape.
+cpp
+Copy
+Edit
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class Shape {
+public:
+    virtual double area() = 0;  // Pure virtual function
+};
+
+class Circle : public Shape {
+private:
+    double radius;
+public:
+    Circle(double r) : radius(r) {}
+    double area() override {
+        return M_PI * radius * radius;
+    }
+};
+
+class Rectangle : public Shape {
+private:
+    double length, width;
+public:
+    Rectangle(double l, double w) : length(l), width(w) {}
+    double area() override {
+        return length * width;
+    }
+};
+
+class Triangle : public Shape {
+private:
+    double base, height;
+public:
+    Triangle(double b, double h) : base(b), height(h) {}
+    double area() override {
+        return 0.5 * base * height;
+    }
+};
+
+int main() {
+    Shape* s1 = new Circle(5);
+    Shape* s2 = new Rectangle(4, 6);
+    Shape* s3 = new Triangle(3, 4);
+
+    cout << "Circle Area: " << s1->area() << endl;
+    cout << "Rectangle Area: " << s2->area() << endl;
+    cout << "Triangle Area: " << s3->area() << endl;
+
+    delete s1;
+    delete s2;
+    delete s3;
+
+    return 0;
+}
+2. Create a base class Animal with a virtual function speak(). Implement derived classes Dog, Cat, and Bird, each overriding the speak() function.
+cpp
+Copy
+Edit
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void speak() {
+        cout << "Animal makes a sound." << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void speak() override {
+        cout << "Woof!" << endl;
+    }
+};
+
+class Cat : public Animal {
+public:
+    void speak() override {
+        cout << "Meow!" << endl;
+    }
+};
+
+class Bird : public Animal {
+public:
+    void speak() override {
+        cout << "Chirp!" << endl;
+    }
+};
+
+int main() {
+    Animal* animals[] = { new Dog(), new Cat(), new Bird() };
+    
+    for(Animal* animal : animals) {
+        animal->speak();
+    }
+
+    for(Animal* animal : animals) {
+        delete animal;
+    }
+
+    return 0;
+}
+3. Write a program that demonstrates function overriding using a base class Employee and derived classes Manager and Worker.
+cpp
+Copy
+Edit
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Employee {
+public:
+    virtual void displayRole() {
+        cout << "I am an Employee." << endl;
+    }
+};
+
+class Manager : public Employee {
+public:
+    void displayRole() override {
+        cout << "I am a Manager." << endl;
+    }
+};
+
+class Worker : public Employee {
+public:
+    void displayRole() override {
+        cout << "I am a Worker." << endl;
+    }
+};
+
+int main() {
+    Employee* emp1 = new Manager();
+    Employee* emp2 = new Worker();
+    
+    emp1->displayRole();
+    emp2->displayRole();
+
+    delete emp1;
+    delete emp2;
+
+    return 0;
+}
+4. Write a program to demonstrate pointer arithmetic by creating an array and accessing its elements using pointers.
+cpp
+Copy
+Edit
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    int* ptr = arr;
+
+    for (int i = 0; i < 5; i++) {
+        cout << "Element " << i << ": " << *(ptr + i) << endl;
+    }
+
+    return 0;
+}
+5. Implement a program that dynamically allocates memory for an integer array and initializes it using pointers.
+cpp
+Copy
+Edit
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n = 5;
+    int* arr = new int[n];
+
+    // Initializing the array using pointers
+    for (int i = 0; i < n; i++) {
+        *(arr + i) = (i + 1) * 10;
+    }
+
+    // Displaying the array
+    for (int i = 0; i < n; i++) {
+        cout << "Element " << i << ": " << *(arr + i) << endl;
+    }
+
+    delete[] arr;  // Deallocate memory
+    return 0;
+}
+6. Create a program that uses a pointer to swap the values of two variables.
+cpp
+Copy
+Edit
+#include <iostream>
+using namespace std;
+
+void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int x = 10, y = 20;
+    cout << "Before swap: x = " << x << ", y = " << y << endl;
+
+    swap(&x, &y);
+
+    cout << "After swap: x = " << x << ", y = " << y << endl;
+
+    return 0;
+}
