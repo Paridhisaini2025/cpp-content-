@@ -1,0 +1,210 @@
+1. Write a program to perform basic input and output using streams (cin and cout).
+cpp
+Copy
+Edit
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    cout << "You entered: " << num << endl;
+    return 0;
+}
+2. Create a program that reads and displays multiple lines of text using cin and cout.
+cpp
+Copy
+Edit
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string line;
+    cout << "Enter multiple lines of text. Enter 'STOP' to end." << endl;
+    
+    while (true) {
+        getline(cin, line);
+        if (line == "STOP") break;
+        cout << "You entered: " << line << endl;
+    }
+    
+    return 0;
+}
+3. Implement a program that uses streams to read integers from the user and display their sum.
+cpp
+Copy
+Edit
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    cout << "Enter two integers: ";
+    cin >> a >> b;
+    cout << "The sum is: " << a + b << endl;
+    return 0;
+}
+4. Write a program to input and output various data types using cin and cout.
+cpp
+Copy
+Edit
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i;
+    double d;
+    string str;
+
+    cout << "Enter an integer: ";
+    cin >> i;
+
+    cout << "Enter a double: ";
+    cin >> d;
+
+    cout << "Enter a string: ";
+    cin >> str;
+
+    cout << "You entered integer: " << i << endl;
+    cout << "You entered double: " << d << endl;
+    cout << "You entered string: " << str << endl;
+
+    return 0;
+}
+5. Create a program that formats output using manipulators such as setw, setprecision, and fixed.
+cpp
+Copy
+Edit
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double num = 123.456789;
+    cout << "Formatted Output:" << endl;
+    cout << setw(15) << fixed << setprecision(2) << num << endl;
+    return 0;
+}
+6. Implement a program that reads user input for name, age, and salary, and then displays the information using formatted output.
+cpp
+Copy
+Edit
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    string name;
+    int age;
+    double salary;
+
+    cout << "Enter your name: ";
+    getline(cin, name);
+
+    cout << "Enter your age: ";
+    cin >> age;
+
+    cout << "Enter your salary: ";
+    cin >> salary;
+
+    cout << fixed << setprecision(2);
+    cout << "Name: " << name << endl;
+    cout << "Age: " << age << endl;
+    cout << "Salary: $" << salary << endl;
+
+    return 0;
+}
+7. Write a program to demonstrate the use of ifstream and ofstream for file input and output.
+cpp
+Copy
+Edit
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream outFile("example.txt");
+    outFile << "Hello, file!" << endl;
+    outFile.close();
+
+    ifstream inFile("example.txt");
+    string line;
+    if (inFile.is_open()) {
+        while (getline(inFile, line)) {
+            cout << line << endl;
+        }
+        inFile.close();
+    } else {
+        cout << "Unable to open file." << endl;
+    }
+    
+    return 0;
+}
+8. Implement a program that reads a list of integers from a file and displays them on the console.
+cpp
+Copy
+Edit
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream inFile("numbers.txt");
+    int num;
+    
+    if (inFile.is_open()) {
+        while (inFile >> num) {
+            cout << num << " ";
+        }
+        inFile.close();
+    } else {
+        cout << "Unable to open file." << endl;
+    }
+
+    return 0;
+}
+9. Create a program that writes a list of strings to a file.
+cpp
+Copy
+Edit
+#include <iostream>
+#include <fstream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<string> names = {"Alice", "Bob", "Charlie"};
+    ofstream outFile("names.txt");
+
+    if (outFile.is_open()) {
+        for (const string& name : names) {
+            outFile << name << endl;
+        }
+        outFile.close();
+        cout << "Names have been written to the file." << endl;
+    } else {
+        cout << "Unable to open file." << endl;
+    }
+
+    return 0;
+}
+10. Write a program to demonstrate unformatted input and output using get and put functions.
+cpp
+Copy
+Edit
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch;
+    cout << "Enter a character: ";
+    ch = cin.get();  // Unformatted input
+
+    cout << "You entered: ";
+    cout.put(ch);  // Unformatted output
+
+    return 0;
+}
